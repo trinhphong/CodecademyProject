@@ -15,8 +15,26 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+// Vue.component('example', require('./components/Example.vue'));
+//
+// const app = new Vue({
+//     el: '#app'
+// });
 
-const app = new Vue({
-    el: '#app'
+$(document).ready(function(){
+    $(".submenu > a").click(function(e) {
+        e.preventDefault();
+        var $li = $(this).parent("li");
+        var $ul = $(this).next("ul");
+
+        if($li.hasClass("open")) {
+            $ul.slideUp(350);
+            $li.removeClass("open");
+        } else {
+            $(".nav > li > ul").slideUp(350);
+            $(".nav > li").removeClass("open");
+            $ul.slideDown(350);
+            $li.addClass("open");
+        }
+    });
 });

@@ -7,3 +7,15 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+body, html {
+  margin: 0; overflow: hidden; height: 100%;
+}
+
+.mar_top {
+  margin-top:10%;
+}
+
+.my_panel {
+  border: 0;box-shadow:10px 10px 50px 10px rgba(255,255,255,.6),10px 10px 50px 10px rgba(255,255,255,.3);background:rgba(40,57,101,.3); color: white;
+}
