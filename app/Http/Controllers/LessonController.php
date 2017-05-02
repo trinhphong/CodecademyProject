@@ -18,7 +18,7 @@ class LessonController extends Controller
         return view('admin.lesson.create');
     }
 
-    public function getChapterID($chapterID)
+    public function createWithChapterID($chapterID)
     {
         return view('admin.lesson.create')->with([
             'chapterID' => $chapterID

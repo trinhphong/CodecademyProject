@@ -32,5 +32,5 @@ Route::prefix('admin')->group(function () {
     Route::resource('course','CourseController');
     Route::resource('chapter','ChapterController');
     Route::resource('lesson','LessonController');
-    Route::get('/lesson/create/{chapterID}', 'LessonController@getChapterID')->name('lesson.create.id');
+    Route::get('/lesson/create/{chapterID}', 'LessonController@createWithChapterID')->name('lesson.create.id');
 });
