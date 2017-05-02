@@ -17,7 +17,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/admin/manager/course">
+                            <a href="{{route('admin.course.show')}}">
                                 <i class="glyphicon glyphicon-book"></i>
                                 Quản Lý Bài Học
                             </a>

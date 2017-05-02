@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -24,5 +25,14 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin.index');
+    }
+
+    public function showCourse()
+    {
+        $course = Course::all()->first();
+
+        return view('admin.course.index')->with([
+           'course' => $course
+        ]);
     }
 }
