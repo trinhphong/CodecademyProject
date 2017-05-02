@@ -6,21 +6,17 @@
             <div class="col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Update Course</h3>
+                        <h3>Update Lesson</h3>
                     </div>
                     <div class="panel-body">
-                        {!! Form::model($course, array('route'=>['course.update',$course->id],'method'=>'PUT')) !!}
+                        {!! Form::model($lesson,array('route'=>['lesson.update',$lesson->id], 'method' => 'PUT')) !!}
                         <div class="form-group">
-                            {!! Form::label('name','Name Course') !!}
+                            {!! Form::label('name','Lesson Name') !!}
                             {!! Form::text('name',null,['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('language','Language') !!}
-                            {!! Form::text('language',null,['class'=>'form-control']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('overview','Overview') !!}
-                            {!! Form::textarea('overview',null,['class'=>'form-control']) !!}
+                            {!! Form::label('chapter_id','Chapter ID') !!}
+                            {!! Form::text('chapter_id',$lesson->chapter_id,['class'=>'form-control', 'readonly' => 'true']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::button('Update',['type' => 'submit', 'class'=>'btn btn-primary']) !!}
@@ -31,8 +27,17 @@
                         </div>
                         {!! Form::close() !!}
                     </div>
+                    <div class="panel-item">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger text-center">
+                                @foreach ($errors->all() as $error)
+                                    <div>{{ $error }}</div>
+                                @endforeach
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    @endsection
+@endsection

@@ -6,39 +6,39 @@
             <div class="col-md-12">
                 <div class="panel panel-success">
                     <div class="panel-heading">
-                        Quản Lý Chapter của Course {{$course->name}}
+                        Quản Lý Lesson của Chapter {{$chapter->id}} - {{$chapter->name}}
                     </div>
                     <div class="panel-body">
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Manage</th>
-                                </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Manage</th>
+                            </tr>
                             </thead>
                             <tbody>
-                            @foreach($chapters as $chapter)
+                            @foreach($lessons as $lesson)
                                 <tr>
-                                    <td>{{$chapter->name}}</td>
+                                    <td>{{$lesson->name}}</td>
                                     <td>
-                                        {!! Form::open(array('route'=>['chapter.destroy',$chapter->id],'method'=>'DELETE')) !!}
-                                        <a href="{{route('chapter.edit', $chapter)}}" class="btn btn-primary">
+                                        {!! Form::open(array('route'=>['lesson.destroy',$lesson->id],'method'=>'DELETE')) !!}
+                                        <a href="{{route('lesson.edit', $lesson)}}" class="btn btn-primary">
                                             Edit
                                             <span><i class="glyphicon glyphicon-edit"></i></span>
                                         </a>
                                         {!! Form::button('Delete',['class'=>'btn btn-danger','type'=>'submit']) !!}
-                                        <a href="{{route('admin.lesson.show',['$chapter' => $chapter->id,'course' => $chapter->course_id])}}" class="btn btn-warning">
-                                            Quản lý Lesson
+                                        <a href="#" class="btn btn-warning">
+                                            Quản lý Task
                                             <span><i class="glyphicon glyphicon-list"></i></span>
                                         </a>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>
-                                @endforeach
+                            @endforeach
                             </tbody>
                         </table>
                         <div class="panel-item">
-                            <a href="{{route('chapter.create')}}" class="btn btn-primary">
+                            <a href="{{route('lesson.create.id',$chapter->id)}}" class="btn btn-primary">
                                 Create
                                 <span><i class="glyphicon glyphicon-dashboard"></i></span>
                             </a>
@@ -55,4 +55,4 @@
             </div>
         </div>
     </div>
-    @endsection
+@endsection

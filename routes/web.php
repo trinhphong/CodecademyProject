@@ -27,5 +27,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
     Route::get('/course/show','AdminController@showCourse')->name('admin.course.show');
+    Route::get('/course/{course}/chapter/','AdminController@showChapter')->name('admin.chapter.show');
+    Route::get('/course/{course}/chapter/{chapter}/lesson/','AdminController@showLesson')->name('admin.lesson.show');
     Route::resource('course','CourseController');
+    Route::resource('chapter','ChapterController');
+    Route::resource('lesson','LessonController');
+    Route::get('/lesson/create/{chapterID}', 'LessonController@getChapterID')->name('lesson.create.id');
 });

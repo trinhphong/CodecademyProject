@@ -28,7 +28,7 @@
                                             Edit
                                             <span><i class="glyphicon glyphicon-edit"></i></span>
                                         </a>
-                                        <a href="#" class="btn btn-danger">
+                                        <a href="{{route('admin.chapter.show',$course->id)}}" class="btn btn-danger">
                                             Quản Lý Chapter
                                             <span><i class="glyphicon glyphicon-list"></i></span>
                                         </a>
