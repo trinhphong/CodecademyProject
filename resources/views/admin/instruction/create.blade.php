@@ -6,33 +6,21 @@
             <div class="col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Create Task</h3>
+                        <h3>Create Instruction</h3>
                     </div>
                     <div class="panel-body">
-                        {!! Form::open(array('route'=>'task.store')) !!}
+                        {!! Form::open(array('route'=>'instruction.store')) !!}
                         <div class="form-group">
-                            {!! Form::label('name','Task Name') !!}
-                            {!! Form::text('name',null,['class'=>'form-control']) !!}
+                            {!! Form::label('content_ins','Content') !!}
+                            {!! Form::textarea('content_ins',null,['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('content_task','Task Content') !!}
-                            {!! Form::textarea('content_task',null,['class'=>'form-control']) !!}
+                            {!! Form::label('solution','Solution') !!}
+                            {!! Form::textarea('solution',null,['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('source_code_html','Task Source HTML') !!}
-                            {!! Form::textarea('source_code_html',null,['class'=>'form-control']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('source_code_css','Task Source CSS') !!}
-                            {!! Form::textarea('source_code_css',null,['class'=>'form-control']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('lesson_id','Lesson') !!}
-                            {!! Form::text('lesson_id',$lessonID,['class'=>'form-control', 'readonly' => 'true']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('stt','Task Stt') !!}
-                            {!! Form::text('stt',null,['class'=>'form-control']) !!}
+                            {!! Form::label('task_id','Task') !!}
+                            {!! Form::text('task_id',$taskID,['class'=>'form-control', 'readonly' => 'true']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::button('Create',['type' => 'submit', 'class'=>'btn btn-primary']) !!}

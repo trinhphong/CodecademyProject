@@ -30,10 +30,13 @@ Route::prefix('admin')->group(function () {
     Route::get('/course/{course}/chapter/','AdminController@showChapter')->name('admin.chapter.show');
     Route::get('/course/{course}/chapter/{chapter}/lesson/','AdminController@showLesson')->name('admin.lesson.show');
     Route::get('/course/{course}/chapter/{chapter}/lesson/{lesson}/task','AdminController@showTask')->name('admin.task.show');
+    ROute::get('/course/{course}/chapter/{chapter}/lesson/{lesson}/task/{task}','AdminController@showInstruction')->name('admin.instruction.show');
     Route::resource('course','CourseController');
     Route::resource('chapter','ChapterController');
     Route::resource('lesson','LessonController');
     Route::resource('task','AdminTaskController');
+    Route::resource('instruction','AdminInstructionController');
     Route::get('/lesson/create/{chapterID}', 'LessonController@createWithChapterID')->name('lesson.create.id');
     Route::get('/task/create/{lessonID}', 'AdminTaskController@createWithLessonID')->name('task.create.id');
+    Route::get('/instruction/create/{taskID)','AdminInstructionController@createWithTaskID')->name('instruction.create.id');
 });

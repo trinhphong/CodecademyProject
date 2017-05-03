@@ -64,6 +64,6 @@ class AdminTaskController extends Controller
         $lesson = Lesson::where('id',$task->lesson_id)->first();
         $chapter = Chapter::where('id',$lesson->chapter_id)->first();
         $task->delete();
-        return redirect()->route('admin.lesson.show',['course' => 1,'chapter' => $chapter->id,'lesson' => $task->lesson_id])->with('message','Xóa thành công');
+        return redirect()->route('admin.task.show',['course' => 1,'chapter' => $chapter->id,'lesson' => $task->lesson_id])->with('message','Xóa thành công');
     }
 }

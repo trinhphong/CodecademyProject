@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Chapter;
 use App\Course;
+use App\Instruction;
 use App\Lesson;
 use App\Task;
 use Illuminate\Http\Request;
@@ -66,6 +67,16 @@ class AdminController extends Controller
         return view('admin.task.index')->with([
            'tasks' => $tasks,
             'lesson' => $lesson
+        ]);
+    }
+
+    public function showInstruction($courseID,$chapterID,$lessonID,$taskID)
+    {
+        $instructions = Instruction::where('task_id',$taskID)->get();
+        $task = Task::where('id',$taskID)->first();
+        return view('admin.instruction.index')->with([
+           'instructions' => $instructions,
+            'task' => $task
         ]);
     }
 }

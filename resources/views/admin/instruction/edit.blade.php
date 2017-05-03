@@ -6,33 +6,21 @@
             <div class="col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3>Update Task</h3>
+                        <h3>Update Instruction</h3>
                     </div>
                     <div class="panel-body">
-                        {!! Form::model($task,array('route'=>['task.update',$task->id], 'method' => 'PUT')) !!}
+                        {!! Form::model($instruction,array('route'=>['instruction.update',$instruction->id], 'method' => 'PUT')) !!}
                         <div class="form-group">
-                            {!! Form::label('stt','Task Stt') !!}
-                            {!! Form::text('stt',null,['class'=>'form-control']) !!}
+                            {!! Form::label('content_ins','Content') !!}
+                            {!! Form::textarea('content_ins',null,['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('name','Task Name') !!}
-                            {!! Form::text('name',null,['class'=>'form-control']) !!}
+                            {!! Form::label('solution','Solution') !!}
+                            {!! Form::textarea('solution',null,['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('content_task','Task Content') !!}
-                            {!! Form::textarea('content_task',null,['class'=>'form-control']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('source_code_html','Task Source HTML') !!}
-                            {!! Form::textarea('source_code_html',null,['class'=>'form-control']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('source_code_css','Task Source CSS') !!}
-                            {!! Form::textarea('source_code_css',null,['class'=>'form-control']) !!}
-                        </div>
-                        <div class="form-group">
-                            {!! Form::label('lesson_id','Lesson') !!}
-                            {!! Form::text('lesson_id',$task->lesson_id,['class'=>'form-control', 'readonly' => 'true']) !!}
+                            {!! Form::label('task_id','Task') !!}
+                            {!! Form::text('task_id',$instruction->task_id,['class'=>'form-control', 'readonly' => 'true']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::button('Update',['type' => 'submit', 'class'=>'btn btn-primary']) !!}

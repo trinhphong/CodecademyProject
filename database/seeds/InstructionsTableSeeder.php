@@ -12,7 +12,7 @@ class InstructionsTableSeeder extends Seeder
     public function run()
     {
         DB::table('instructions')->insert([
-            'content' => 'In the code editor to the right, type your name in between <code>&lt;h1&gt;</code> and  <code>&lt;/h1&gt;</code>, then press Run.',
+            'content_ins' => 'In the code editor to the right, type your name in between <code>&lt;h1&gt;</code> and  <code>&lt;/h1&gt;</code>, then press Run.',
             'solution' => '<!DOCTYPE html>
 <html>
   <head>
