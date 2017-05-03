@@ -11,7 +11,7 @@ class InstructionController extends Controller
     public function index($taskID)
     {
         $instructions = Instruction::where('task_id',$taskID)->get();
-        return view('client.lesson.index')->with([
+        return view('client.instruction.index')->with([
             'instructions' => $instructions
         ]);
     }

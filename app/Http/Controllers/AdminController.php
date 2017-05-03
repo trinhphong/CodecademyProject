@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Admin;
 use App\Chapter;
 use App\Course;
+use App\Http\Requests\CreateAdminRequest;
 use App\Instruction;
 use App\Lesson;
 use App\Task;
@@ -78,5 +80,38 @@ class AdminController extends Controller
            'instructions' => $instructions,
             'task' => $task
         ]);
+    }
+
+    public function showAuth()
+    {
+        return view('admin.user.index');
+    }
+
+    public function showAdmin()
+    {
+        $admins = Admin::all();
+        return view('admin.user.super.index')->with([
+            'admins' => $admins
+        ]);
+    }
+
+    public function create()
+    {
+        return view('admin.user.super.create');
+    }
+
+    public function store(CreateAdminRequest $request)
+    {
+        $admin = Admin::where('email',$request->email)->first();
+        if (isset($admin->email)) {
+            return redirect()->route('super.admin.create')->with('fail', 'Trùng email - Thêm Admin Thất Bại');
+        }
+        Admin::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'role' => $request->role
+        ]);
+        return redirect()->route('super.admin.show')->with('message', 'Thêm Admin thành công');
     }
 }

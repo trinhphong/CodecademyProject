@@ -37,7 +37,7 @@
                             <div class="panel panel-body">
                                 @foreach($instructions as $instruction)
                                     <div id="Ins-{{$instruction->id}}">
-                                        <p>{{$instruction->content}}</p>
+                                        <p>{{$instruction->content_ins}}</p>
                                     </div>
                                     @endforeach
                             </div>
@@ -70,7 +70,10 @@
         </div>
     </div>
     <div class="col-md-12" style="position:absolute; top:95%; height: 50px;background-color: #282a36;width: 100%">
-        <div class="col-md-4" style="background-color: black; height: 50px;width: 33.333333333%; left: 33.333333333%">
+        <div class="col-md-4">
+            <a class="btn btn-danger" href="{{route('client.home')}}">HOME</a>
+        </div>
+        <div class="col-md-4" style="background-color: black; height: 50px;width: 33.333333333%">
             @if($task->stt > 1)
                 <a type="submit" class="btn btn-primary pull-left" href="#" onclick="history.back()">Back</a>
             @else

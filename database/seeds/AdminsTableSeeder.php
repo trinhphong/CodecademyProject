@@ -15,7 +15,14 @@ class AdminsTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('123456'),
-            'role' => 'normal_admin',
+            'role' => 'Admin',
+        ]);
+
+        DB::table('admins')->insert([
+            'name' => 'super admin',
+            'email' => 'super@gmail.com',
+            'password' => bcrypt('123456'),
+            'role' => 'Super Admin',
         ]);
     }
 }

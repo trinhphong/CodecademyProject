@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('client.home');
 Route::get('/lessons/{lesson}/tasks/','TaskController@index')->name('client.task.show');
 Route::get('/lessons/{lesson}/tasks/{taskID}','TaskController@showNext')->name('client.task.showNext');
 Route::post('/task/check','TaskController@check')->name('task.check');
@@ -39,4 +39,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/lesson/create/{chapterID}', 'LessonController@createWithChapterID')->name('lesson.create.id');
     Route::get('/task/create/{lessonID}', 'AdminTaskController@createWithLessonID')->name('task.create.id');
     Route::get('/instruction/create/{taskID)','AdminInstructionController@createWithTaskID')->name('instruction.create.id');
+
+    Route::get('/user/show','AdminController@showAuth')->name('admin.user.show');
+
+    Route::get('/super/admin/show','AdminController@showAdmin')->name('super.admin.show');
+    Route::get('/super/admin/create','AdminController@create')->name('super.admin.create');
+    Route::post('/super/admin','AdminController@store')->name('super.admin.store');
 });
