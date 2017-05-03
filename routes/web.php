@@ -18,8 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/lessons/{lesson}/tasks/','TaskController@index')->name('task.show');
-Route::get('/lessons/{lesson}/tasks/{taskID}','TaskController@showNext')->name('task.showNext');
+Route::get('/lessons/{lesson}/tasks/','TaskController@index')->name('client.task.show');
+Route::get('/lessons/{lesson}/tasks/{taskID}','TaskController@showNext')->name('client.task.showNext');
 Route::post('/task/check','TaskController@check')->name('task.check');
 
 Route::prefix('admin')->group(function () {
@@ -29,8 +29,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/course/show','AdminController@showCourse')->name('admin.course.show');
     Route::get('/course/{course}/chapter/','AdminController@showChapter')->name('admin.chapter.show');
     Route::get('/course/{course}/chapter/{chapter}/lesson/','AdminController@showLesson')->name('admin.lesson.show');
+    Route::get('/course/{course}/chapter/{chapter}/lesson/{lesson}/task','AdminController@showTask')->name('admin.task.show');
     Route::resource('course','CourseController');
     Route::resource('chapter','ChapterController');
     Route::resource('lesson','LessonController');
+    Route::resource('task','AdminTaskController');
     Route::get('/lesson/create/{chapterID}', 'LessonController@createWithChapterID')->name('lesson.create.id');
+    Route::get('/task/create/{lessonID}', 'AdminTaskController@createWithLessonID')->name('task.create.id');
 });

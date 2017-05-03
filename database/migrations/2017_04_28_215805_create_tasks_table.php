@@ -15,9 +15,10 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumText('content');
-            $table->mediumText('source_code_html');
-            $table->mediumText('source_code_css');
+            $table->string('name');
+            $table->mediumText('content_task');
+            $table->mediumText('source_code_html')->nullable();
+            $table->mediumText('source_code_css')->nullable();
             $table->integer('lesson_id')->unsigned();
             $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
             $table->integer('stt')->unsigned();

@@ -43,7 +43,7 @@
                                             <ul style="display: none;">
                                                 <?php $lessons = array_shift($listLessons) ?>
                                                 @foreach($lessons as $lesson)
-                                                    <li><a href="{{route('task.show',['lesson' => $lesson])}}">{{$lesson->name}}</a></li>
+                                                    <li><a href="{{route('client.task.show',['lesson' => $lesson])}}">{{$lesson->name}}</a></li>
                                                     @endforeach
                                             </ul>
                                         </li>

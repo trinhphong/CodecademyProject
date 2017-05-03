@@ -1,9 +1,11 @@
 <?php
 namespace App\Http\Controllers;
+use App\Chapter;
 use App\Instruction;
 use App\Lesson;
 use Illuminate\Http\Request;
 use App\Task;
+use App\Http\Requests\CreateTaskRequest;
 class TaskController extends Controller
 {
     /**
@@ -34,13 +36,13 @@ class TaskController extends Controller
             'instructions' => $instructions
         ]);
     }
-    public function showNext($lessonID,$taskID)
+    public function showNext($lessonID,$taskSTT)
     {
         $lesson = Lesson::where('id',$lessonID)->first();
-        $task = Task::where(['lesson_id'=>$lessonID,'id' => $taskID])->first();
+        $task = Task::where(['lesson_id'=>$lessonID,'stt' => $taskSTT])->first();
         $tasks = Task::where(['lesson_id'=>$lessonID])->get();
         $count = count($tasks);
-        $instructions = Instruction::where('task_id',$taskID)->get();
+        $instructions = Instruction::where('task_id',$task->id)->get();
         return view('client.lesson.index')->with([
             'task' => $task,
             'lesson' => $lesson,

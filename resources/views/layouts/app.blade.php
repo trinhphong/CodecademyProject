@@ -21,7 +21,7 @@
         ]) !!};
     </script>
 </head>
-<body @yield('on_load') @yield('style_body')>
+<body @yield('on_load') @yield('style_body') style="overflow: scroll">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top" @yield('fixed-nav-top')>
             <div class="container">

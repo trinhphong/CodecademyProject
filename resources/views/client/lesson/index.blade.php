@@ -29,7 +29,7 @@
                         Learn
                     </div>
                     <div id="ss"class="panel-body" style="padding: 0 10px 0 10px;">
-                        {{$task->content}}
+                        <textarea style="width: 100%; height: 500px">{{$task->content_task}}</textarea>
                         <div class="panel panel-default" style="margin: 0">
                             <div class="panel-heading">
                                 <p>Instructions</p>
@@ -80,7 +80,7 @@
             <div style="display: inline; font-size: large; color: white;position: absolute; left: 45%">{{($task->stt)}}/{{$count}}</div>
 
             @if ($task->stt < $count)
-                <a type="submit" class="btn btn-primary pull-right" href="{{route('task.showNext',['lesson'=>$lesson,'taskID'=>$task->id+1])}}">Next</a>
+                <a type="submit" class="btn btn-primary pull-right" href="{{route('client.task.showNext',['lesson'=>$task->lesson_id,'taskSTT'=>$task->stt+1])}}">Next</a>
             @else
                 <a type="submit" class="btn btn-primary pull-right" href="#">Next Lesson</a>
                 @endif
@@ -142,6 +142,4 @@
             })
         });
     </script>
-
-
 @endsection

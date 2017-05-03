@@ -27,7 +27,7 @@
                                             <span><i class="glyphicon glyphicon-edit"></i></span>
                                         </a>
                                         {!! Form::button('Delete',['class'=>'btn btn-danger','type'=>'submit']) !!}
-                                        <a href="#" class="btn btn-warning">
+                                        <a href="{{route('admin.task.show',['course' => $chapter->course_id,'chapter' => $chapter->id, 'lesson' => $lesson->id])}}" class="btn btn-warning">
                                             Quản lý Task
                                             <span><i class="glyphicon glyphicon-list"></i></span>
                                         </a>

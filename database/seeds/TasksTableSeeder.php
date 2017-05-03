@@ -12,7 +12,8 @@ class TasksTableSeeder extends Seeder
     public function run()
     {
         DB::table('tasks')->insert([
-            'content' => 'HTML
+            'name' => 'What\'s HTML?',
+            'content_task' => 'HTML
              is the language\n used to create the web pages you visit everyday. It provides a logical way to structure content for web pages.
 
 Let\'s analyze the acronym "HTML", as it contains a lot of useful information. HTML stands for HyperText Markup Language.
@@ -105,7 +106,8 @@ a.btn:hover {
         ]);
 
         DB::table('tasks')->insert([
-            'content' => 'A web browser must know what language a document is written in before they can process the contents of the document.
+            'name' => '!Doctype',
+            'content_task' => 'A web browser must know what language a document is written in before they can process the contents of the document.
 
 You can let web browsers know that you are using the HTML language by starting your HTML document with a document type declaration.
 
@@ -122,7 +124,8 @@ Note: If you don\'t use the doctype declaration, your HTML code will likely stil
         ]);
 
         DB::table('tasks')->insert([
-            'content' => 'Headings in HTML can be likened to headings in other types of media. For example, in newspapers, large headings are typically used to capture a reader\'s attention. Other times, headings are used to describe content, like the title of a movie or an educational article.',
+            'name' => 'Visible Content',
+            'content_task' => 'Headings in HTML can be likened to headings in other types of media. For example, in newspapers, large headings are typically used to capture a reader\'s attention. Other times, headings are used to describe content, like the title of a movie or an educational article.',
             'source_code_html' => '<!DOCTYPE html>
 <html>
 <head>
@@ -154,7 +157,8 @@ Note: If you don\'t use the doctype declaration, your HTML code will likely stil
         ]);
 
         DB::table('tasks')->insert([
-            'content' => 'Headings in HTML can be likened to headings in other types of media. For example, in newspapers, large headings are typically used to capture a reader\'s attention. Other times, headings are used to describe content, like the title of a movie or an educational article.
+            'name' => 'Heading',
+            'content_task' => 'Headings in HTML can be likened to headings in other types of media. For example, in newspapers, large headings are typically used to capture a reader\'s attention. Other times, headings are used to describe content, like the title of a movie or an educational article.
 
 HTML follows a similar pattern. In HTML, there are six different headings, or heading elements. Headings can be used for a variety of purposes, like titling sections, articles, or other forms of content.
 
