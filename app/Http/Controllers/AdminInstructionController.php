@@ -39,7 +39,8 @@ class AdminInstructionController extends Controller
         $chapter = Chapter::where('id',$lesson->chapter_id)->first();
         Instruction::create([
             'content_ins' => $request->content_ins,
-            'solution' => $request->solution,
+            'solution_HTML' => $request->solution_HTML,
+            'solution_CSS' => $request->solution_CSS,
             'task_id' => $request->task_id,
         ]);
         return redirect()->route('admin.instruction.show',['course' => 1,'chapter' => $chapter->id,'lesson' => $lesson->id,'task' => $task->id])->with('message','Thêm Task thành công');

@@ -53,12 +53,25 @@ class TaskController extends Controller
     public function check(Request $request)
     {
         $listInstructions = Instruction::where('task_id',$request->taskID)->get();
-        $codeValue = $request->codeUser;
+        $codeValue_HTML = $request->codeUser_HTML;
+        $codeValue_CSS = $request->codeUser_CSS;
         $successInstructions = array();
         foreach ($listInstructions as $instruction)
         {
-            if(str_contains(strtolower($codeValue),strtolower($instruction->solution))) {
-                $successInstructions[] = $instruction->id;
+//            $successInstructions[] = $instruction->solution_HTML;
+//            $successInstructions[] = $codeValue_HTML;
+            if(str_contains(strtolower($instruction->solution_HTML),strtolower($codeValue_HTML))) {
+                if(isset($codeValue_CSS))
+                {
+                    if(str_contains(strtolower($instruction->solution_CSS),strtolower($codeValue_CSS)))
+                    {
+                        $successInstructions[] = $instruction->id;
+                    }
+                }
+                else
+                {
+                    $successInstructions[] = $instruction->id;
+                }
             }
         }
         $response = [

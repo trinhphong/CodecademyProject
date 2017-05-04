@@ -15,8 +15,12 @@
                             {!! Form::textarea('content_ins',null,['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('solution','Solution') !!}
-                            {!! Form::textarea('solution',null,['class'=>'form-control']) !!}
+                            {!! Form::label('solution_HTML','Solution HTML') !!}
+                            {!! Form::textarea('solution_HTML',null,['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('solution_CSS','Solution CSS') !!}
+                            {!! Form::textarea('solution_CSS',null,['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::label('task_id','Task') !!}

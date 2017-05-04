@@ -124,13 +124,16 @@
                 result.contents().find("head").append('<style>'+css+'</style>');
                 result.contents().find("body").html(html);
             });
-            var codeUser = editor_html.getValue();
+            var codeUser_HTML = editor_html.getValue();
+            var codeUser_CSS = editor_css.getValue();
+
             $.ajax({
                 url: '{{route('task.check')}}',
                 type: 'POST',
                 data: {
                     taskID: '{{$task->id}}',
-                    codeUser: codeUser,
+                    codeUser_HTML: codeUser_HTML,
+                    codeUser_CSS: codeUser_CSS,
                 },
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

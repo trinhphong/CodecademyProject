@@ -38,7 +38,7 @@ Route::prefix('admin')->group(function () {
     Route::resource('instruction','AdminInstructionController');
     Route::get('/lesson/create/{chapterID}', 'LessonController@createWithChapterID')->name('lesson.create.id');
     Route::get('/task/create/{lessonID}', 'AdminTaskController@createWithLessonID')->name('task.create.id');
-    Route::get('/instruction/create/{taskID)','AdminInstructionController@createWithTaskID')->name('instruction.create.id');
+    Route::get('/instruction/create/{taskID})','AdminInstructionController@createWithTaskID')->name('instruction.create.id');
 
     Route::get('/auth/show','AdminController@showAuth')->name('admin.auth.show');
 

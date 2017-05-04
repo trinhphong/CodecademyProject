@@ -25,8 +25,9 @@ class CreateInstructionRequest extends FormRequest
     {
         return [
             'content_ins' => 'required',
-            'solution' => 'required',
-            'task_id' => 'required'
+            'solution_HTML' => 'required',
+            'solution_CSS' => 'nullable',
+            'task_id' => 'required',
         ];
     }
 }

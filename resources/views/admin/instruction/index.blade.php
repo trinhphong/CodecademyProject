@@ -21,7 +21,7 @@
                             @foreach($instructions as $instruction)
                                 <tr>
                                     <td>{{$instruction->content_ins}}</td>
-                                    <td>{{$instruction->solution}}</td>
+                                    <td>{{$instruction->solution_HTML}}</td>
                                     <td>
                                         {!! Form::open(array('route'=>['instruction.destroy',$instruction->id],'method'=>'DELETE')) !!}
                                         <a href="{{route('instruction.edit',$instruction)}}" class="btn btn-primary">
