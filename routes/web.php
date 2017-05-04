@@ -50,3 +50,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/user/show','AdminController@showUser')->name('admin.user.show');
     Route::delete('/admin/{user}','AdminController@destroyUser')->name('admin.user.destroy');
 });
+
+
+Route::get('auth/facebook', ['as' => 'auth/facebook', 'uses' => 'Auth\LoginController@redirectToProvider']);
+Route::get('auth/facebook/callback',['as' => 'auth/facebook/callback', 'uses' => 'Auth\LoginController@handleProviderCallback']);

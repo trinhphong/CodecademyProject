@@ -14,6 +14,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>email</th>
+                                <th>With Facebook</th>
                                 <th>Manage</th>
                             </tr>
                             </thead>
@@ -22,6 +23,11 @@
                                     <tr>
                                         <td>{{$user->name}}</td>
                                         <td>{{$user->email}}</td>
+                                        <td>
+                                            @if($user->facebook_id > 0)
+                                                <strong>YES</strong>
+                                                @endif
+                                        </td>
                                         <td>
                                             {!! Form::open(array('route'=>['admin.user.destroy',$user->id],'method'=>'DELETE')) !!}
                                             {!! Form::button('Delete',['class'=>'btn btn-danger','type'=>'submit']) !!}
