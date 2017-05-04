@@ -11,9 +11,9 @@
                     <div class="panel-body">
                         @if(Auth::user()->role == 'Super Admin')
                             <a class="btn btn-primary" href="{{route('super.admin.show')}}">Quản Lý Admin</a>
-                            <a class="btn btn-primary" href="">Quản Lý User</a>
+                            <a class="btn btn-primary" href="{{route('admin.user.show')}}">Quản Lý User</a>
                             @else
-                            <a class="btn btn-primary" href="#">Quản Lý User</a>
+                            <a class="btn btn-primary" href="{{route('admin.user.show')}}">Quản Lý User</a>
                             @endif
                     </div>
                 </div>

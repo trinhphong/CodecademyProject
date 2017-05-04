@@ -40,9 +40,13 @@ Route::prefix('admin')->group(function () {
     Route::get('/task/create/{lessonID}', 'AdminTaskController@createWithLessonID')->name('task.create.id');
     Route::get('/instruction/create/{taskID)','AdminInstructionController@createWithTaskID')->name('instruction.create.id');
 
-    Route::get('/user/show','AdminController@showAuth')->name('admin.user.show');
+    Route::get('/auth/show','AdminController@showAuth')->name('admin.auth.show');
 
     Route::get('/super/admin/show','AdminController@showAdmin')->name('super.admin.show');
     Route::get('/super/admin/create','AdminController@create')->name('super.admin.create');
     Route::post('/super/admin','AdminController@store')->name('super.admin.store');
+    Route::delete('/super/admin/{admin}','AdminController@destroy')->name('super.admin.destroy');
+
+    Route::get('/user/show','AdminController@showUser')->name('admin.user.show');
+    Route::delete('/admin/{user}','AdminController@destroyUser')->name('admin.user.destroy');
 });

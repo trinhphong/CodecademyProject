@@ -23,7 +23,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{route('admin.user.show')}}">
+                            <a href="{{route('admin.auth.show')}}">
                                 <i class="glyphicon glyphicon-user"></i>
                                 Quản Lý Học Viên
                             </a>

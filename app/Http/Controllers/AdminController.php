@@ -9,6 +9,7 @@ use App\Http\Requests\CreateAdminRequest;
 use App\Instruction;
 use App\Lesson;
 use App\Task;
+use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -113,5 +114,26 @@ class AdminController extends Controller
             'role' => $request->role
         ]);
         return redirect()->route('super.admin.show')->with('message', 'Thêm Admin thành công');
+    }
+
+    public function destroy(Admin $admin)
+    {
+        $admin->delete();
+        return redirect()->route('super.admin.show')->with('message','Xóa thành công');
+    }
+
+    public function showUser()
+    {
+        $users = User::all();
+        return view('admin.user.user.index')->with([
+           'users' => $users
+        ]);
+    }
+
+    public function destroyUser(User $user)
+    {
+        $user->delete();
+        $users = User::all();
+        return view('admin.user.user.index')->with(['message'=>'Xóa Thành Công','users' => $users]);
     }
 }

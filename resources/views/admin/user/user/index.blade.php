@@ -9,34 +9,25 @@
                         <h3>Quyền: {{Auth::user()->role}}</h3>
                     </div>
                     <div class="panel-body">
-                        <div class="panel-item">
-                            <a class="btn btn-success" href="{{route('super.admin.create')}}">
-                                Create
-                            </a>
-                        </div>
                         <table class="table">
                             <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>email</th>
-                                <th>Role</th>
                                 <th>Manage</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($admins as $admin)
-                                @if($admin->role != 'Super Admin')
+                            @foreach($users as $user)
                                     <tr>
-                                        <td>{{$admin->name}}</td>
-                                        <td>{{$admin->email}}</td>
-                                        <td>{{$admin->role}}</td>
+                                        <td>{{$user->name}}</td>
+                                        <td>{{$user->email}}</td>
                                         <td>
-                                            {!! Form::open(array('route'=>['super.admin.destroy',$admin->id],'method'=>'DELETE')) !!}
+                                            {!! Form::open(array('route'=>['admin.user.destroy',$user->id],'method'=>'DELETE')) !!}
                                             {!! Form::button('Delete',['class'=>'btn btn-danger','type'=>'submit']) !!}
                                             {!! Form::close() !!}
                                         </td>
                                     </tr>
-                                    @endif
                             @endforeach
                             </tbody>
                         </table>
